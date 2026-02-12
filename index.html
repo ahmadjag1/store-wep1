@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="wep.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHMAD RP STORE</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Rajdhani:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">AHMAD.JAG</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-item active" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" class="nav-item" onclick="showPage('store')">Store</a></li>
+                <li><a href="./RULES.HTML" class="nav-item" onclick="showPage('Rules')">Rules</a></li>
+                <li><a href="#" class="nav-item" onclick="showPage('status')">Status</a></li>
+            </ul>
+        </nav>
+        
+        <div class="right-nav">
+            <!-- Cart Trigger -->
+            <div class="cart-trigger" onclick="toggleCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+
+            <div class="auth-section">
+                <button class="discord-btn" id="loginBtn" onclick="openLoginModal()">
+                    <i class="fa-brands fa-discord"></i> Login
+                </button>
+                
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar"></div>
+                    <span class="user-name">CommanderX</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="login-modal">
+            <button class="modal-close" onclick="closeLoginModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-icon">
+                <i class="fa-brands fa-discord"></i>
+            </div>
+            <h2>Citizen Login</h2>
+            <label for="#email00"></label>
+            
+           <p>Email <input  type="email" id="email00" class="login-btn-largeJAG" style="width:220px;height:10px;font-size: small" pattern="pattern" name="email" onclick="openGmail()"></p>
+            
+           <p>Pass <input type="password" id="password00" class="login-btn-largeJAG" style="width:220px;height:10px;font-size: small;" required="required" onclick="openPassword()"></p>
+
+            
+
+            </br>
+            <a href="email00">you dont have email?</a>
+              
+
+            <p style="color: #888; margin-top: 10px;"></p>
+            <button class="login-btn-large" onclick="performLogin()">LOGIN AHMAD SERVER</button>
+        </div>
+    </div>
+    
+    <!-- CART DRAWER -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <div class="close-cart" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-msg">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div id="main-container">
+        
+        <!-- HOME PAGE -->
+        <div id="home-page">
+            <section class="hero-section">
+                <!-- BACKGROUND -->
+                <div class="hero-bg-image"></div>
+                <div class="video-overlay"></div>
+                <div class="hero-content">
+                    <div style="font-family: 'Rajdhani'; color: var(--primary-blue); letter-spacing: 3px; font-weight: 700; margin-bottom: 10px;">EST. 2025</div>
+                    <h1 class="hero-title">AHMAD RP</h1>
+                    <h2 class="hero-subtitle">Enter the Monster's Domain (AHMAD.JAG)
+                    </h2>
+                    <p class="hero-desc">Experience the ultimate GTA V roleplay server where chaos meets community. Join thousands of players in an immersive world.</p>
+                    
+                    <!-- UPDATED: Join Server button now links to Discord -->
+                  <button class="cta-btn" onclick=window.open("https://discord.gg/KrMdW3zB","_blank")>Join Server (AHMAD.JAG)</button>  
+                
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">ABOUT AHMAD RP</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p style="margin-bottom: 1.5rem; color: #ccc;">Welcome to AHMAD RP, the premier GTA V roleplay server. Our community-driven platform offers an unparalleled experience with custom scripts, dedicated staff, and endless possibilities.</p>
+                        <p style="color: #ccc;">Whether you're a law enforcement officer, a business mogul, or a street racer, Godzilla provides the perfect environment.</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-box"><i class="fa-solid fa-users stat-icon"></i><div class="stat-number">2,500+</div><div class="stat-label">Active Players</div></div>
+                        <div class="stat-box"><i class="fa-solid fa-server stat-icon"></i><div class="stat-number">99.9%</div><div class="stat-label">Server Uptime</div></div>
+                                            <div class="stat-box"><i class="fa-solid fa-users stat-icon"></i><div class="stat-number">150+</div><div class="stat-label">CASTOM SCRIPT</div></div>
+                        <div class="stat-box"><i class="fa-solid fa-server stat-icon"></i><div class="stat-number">99.9%</div><div class="stat-label">PEST PLAYERS</div></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- STORE PAGE -->
+        <div id="store-page" class="store-page">
+            <div class="store-header">
+                <h2>AHMAD THE MONSTER</h2>
+                <p style="color: #aaa; max-width: 600px; margin: 0 auto;">Power up your gameplay with exclusive items. Purchases support server development.</p>
+            </div>
+
+            <!-- CATEGORY TABS -->
+            <div class="store-tabs">
+                <button class="tab-btn active" onclick="filterStore('memberships', this)">Memberships</button>
+                <button class="tab-btn" onclick="filterStore('cars', this)">Cars Only</button>
+                <button class="tab-btn" onclick="filterStore('clothing', this)">Clothing</button>
+            </div>
+
+            <!-- SECTION: MEMBERSHIPS -->
+            <div id="cat-memberships" class="products-section active">
+                <div class="product-card">
+                    <div class="product-image"><i class="fa-solid fa-crown"></i></div>
+                    <div class="product-content">
+                        <h3 class="product-title">VIP Membership</h3>
+                        <p class="product-desc">Unlock exclusive perks, priority queue access, custom emote slots, and chat colors.</p>
+                        <div class="product-footer">
+                            <span class="price">$9.99</span>
+                            <button class="buy-btn" onclick="addToCart(this, 'VIP Membership', 9.99, 'fa-crown')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><i class="fa-solid fa-user-secret"></i></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Gang Starter Pack</h3>
+                        <p class="product-desc">Create your own faction with a custom hideout location and stash access.</p>
+                        <div class="product-footer">
+                            <span class="price">$49.99</span>
+                            <button class="buy-btn" onclick="addToCart(this, 'Gang Starter Pack', 49.99, 'fa-user-secret')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Starter Millionaire</h3>
+                        <p class="product-desc">Start your journey with $1,000,000 in-game cash to buy your first property.</p>
+                        <div class="product-footer">
+                            <span class="price">$19.99</span>
+                            <button class="buy-btn" onclick="addToCart(this, 'Starter Millionaire', 19.99, 'fa-sack-dollar')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: CARS -->
+            <div id="cat-cars" class="products-section">
+                <div class="product-card">
+                    <div class="product-image">
+                        
+                        <!-- [2] CHANGE CAR IMAGE 1 HERE -->
+                        <!-- Replace the src="..." link below -->
+                        <img src="https://www.motor.es/fotos-noticias/2012/03/mansory-mercedes-benz-cls-63-amg-ginebra-2012-201210833_7.jpg" alt="Car 1" class="product-img-real">
+                        
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">CLS 63 AMG</h3>
+                        <p class="product-desc">Access to 5 high-end luxury vehicles including supercars.</p>
+                        <div class="product-footer">
+                            <span class="price">$24.99</span>
+                            <button class="buy-btn" onclick="addToCart(this, 'Premium Vehicle Pack', 24.99, 'fa-car-sport')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        
+                        <!-- [3] CHANGE CAR IMAGE 2 HERE -->
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.OZvl4G134VUy3EjdDQ-3RAHaE7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Car 2" class="product-img-real">
+                        
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Lamborghini Aventador SVJ</h3>
+                        <p class="product-desc">The fastest bike in the city with custom neon underglow.</p>
+                        <div class="product-footer">
+                            <span class="price">$14.99</span>
+                            <button class="buy-btn" onclick="addToCart(this, 'Godzilla Superbike', 14.99, 'fa-motorcycle')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        
+                        <!-- [4] CHANGE CAR IMAGE 3 HERE -->
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.ZarUDIurJYTcQajO_kbqEgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Car 3" class="product-img-real">
+                        
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">BMW M4 CSL</h3>
+                        <p class="product-desc">Heavy-duty armored SUV for secure transport missions.</p>
+                        <div class="product-footer">
+                            <span class="price">$19.99</span>
+                            <button class="buy-btn" onclick="addToCart(this, 'Armored Enforcer', 19.99, 'fa-truck-monster')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: CLOTHING -->
+            <div id="cat-clothing" class="products-section">
+                <div class="product-card">
+                    <div class="product-image"><i class="fa-solid fa-shirt"></i></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Designer Drip Bundle</h3>
+                        <p class="product-desc">Get the latest branded hoodies, sneakers, and chains.</p>
+                        <div class="product-footer">
+                            <span class="price">$9.99</span>
+                            <button class="buy-btn" onclick="addToCart(this, 'Designer Drip Bundle', 9.99, 'fa-shirt')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><i class="fa-solid fa-mask"></i></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Heist Mask Pack</h3>
+                        <p class="product-desc">A collection of 10 unique masks for your criminal activities.</p>
+                        <div class="product-footer">
+                            <span class="price">$4.99</span>
+                            <button class="buy-btn" onclick="addToCart(this, 'Heist Mask Pack', 4.99, 'fa-mask')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><i class="fa-solid fa-vest-patches"></i></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Tactical Gear Set</h3>
+                        <p class="product-desc">Complete tactical outfit including vest, holsters, and boots.</p>
+                        <div class="product-footer">
+                            <span class="price">$12.99</span>
+                            <button class="buy-btn" onclick="addToCart(this, 'Tactical Gear Set', 12.99, 'fa-vest-patches')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: CARS -->
+            <div id="cat-cars" class="products-section">
+                <div class="product-card">
+                    <div class="product-image">
+                        
+                        <!-- [2] CHANGE CAR IMAGE 1 HERE -->
+                        <!-- Replace the src="..." link below -->
+                        <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1000&auto=format&fit=crop" alt="Car 1" class="product-img-real">
+                        
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Vehicle Pack</h3>
+                        <p class="product-desc">Access to 5 high-end luxury vehicles including supercars.</p>
+                        <div class="product-footer">
+                            <span class="price">$24.99</span>
+                            <button class="buy-btn" onclick="addToCart('Premium Vehicle Pack', 24.99, 'fa-car-sport')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        
+                        <!-- [3] CHANGE CAR IMAGE 2 HERE -->
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c3d?q=80&w=1000&auto=format&fit=crop" alt="Car 2" class="product-img-real">
+                        
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Godzilla Superbike</h3>
+                        <p class="product-desc">The fastest bike in the city with custom neon underglow.</p>
+                        <div class="product-footer">
+                            <span class="price">$14.99</span>
+                            <button class="buy-btn" onclick="addToCart('Godzilla Superbike', 14.99, 'fa-motorcycle')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        
+                        <!-- [4] CHANGE CAR IMAGE 3 HERE -->
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1000&auto=format&fit=crop" alt="Car 3" class="product-img-real">
+                        
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Armored Enforcer</h3>
+                        <p class="product-desc">Heavy-duty armored SUV for secure transport missions.</p>
+                        <div class="product-footer">
+                            <span class="price">$19.99</span>
+                            <button class="buy-btn" onclick="addToCart('Armored Enforcer', 19.99, 'fa-truck-monster')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: CLOTHING -->
+            <div id="cat-clothing" class="products-section">
+                <div class="product-card">
+                    <div class="product-image"><i class="fa-solid fa-shirt"></i></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Designer Drip Bundle</h3>
+                        <p class="product-desc">Get the latest branded hoodies, sneakers, and chains.</p>
+                        <div class="product-footer">
+                            <span class="price">$9.99</span>
+                            <button class="buy-btn" onclick="addToCart('Designer Drip Bundle', 9.99, 'fa-shirt')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><i class="fa-solid fa-mask"></i></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Heist Mask Pack</h3>
+                        <p class="product-desc">A collection of 10 unique masks for your criminal activities.</p>
+                        <div class="product-footer">
+                            <span class="price">$4.99</span>
+                            <button class="buy-btn" onclick="addToCart('Heist Mask Pack', 4.99, 'fa-mask')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><i class="fa-solid fa-vest-patches"></i></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Tactical Gear Set</h3>
+                        <p class="product-desc">Complete tactical outfit including vest, holsters, and boots.</p>
+                        <div class="product-footer">
+                            <span class="price">$12.99</span>
+                            <button class="buy-btn" onclick="addToCart('Tactical Gear Set', 12.99, 'fa-vest-patches')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">GODZILLA</div>
+                <p style="color: #777; font-size: 0.9rem;">The ultimate GTA V roleplay experience.</p>
+            </div>
+            <div class="footer-col">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('store')">Store</a></li>
+                    <li><a href="./RULES.HTML" onclick="showPage('Rules')">Rules</a></li>
+                    <li><a href="#" onclick="showPage('status')">Status</a></li>
+                    
+                    
+                    <!-- UPDATED: Footer link to Discord -->
+                    <li><a href="https://discord.gg/QzmHp9zP" target="_blank">Discord</a></li>
+                    
+                    <li><a href="#">Forum</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Rules</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CONNECT</h4>
+                <div class="social-links">
+                    
+                    <!-- UPDATED: Social Icon to Discord -->
+                    <a href="https://discord.gg/QzmHp9zP" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                    
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                 </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 AHMAD BR GTA V Server. All rights reserved.
+        </div>
+    </footer>
+    <script src="wep.js"></script>
+</body>
+</html>
